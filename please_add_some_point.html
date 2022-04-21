@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拜託加點分</title>
+    <link rel="stylesheet" href="another.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="aaa.html" title="測試超連結"><h3 id = "goback">to piyan</h3></a>
+            <a href="bless_u.html" title="測試超連結"><h3 id = "goto">去祈福</h3></a>
+            <center><h1>剛剛那頁做完才發現有評分項目，這一頁來補救一下</h1></center>
+            
+        </div>
+        <img id="score_pic" src="score.jpg" width="45%" height="90%" >
+        <img id="point" src="pointing.png" width="40%" height="60%" >
+        <div>
+        <h1 id="score">楊子慶的分數是:</h1>
+        <a class="rainbow"><h1 id="limit">破表啦啦啦</h1></a>
+        
+        </div>
+    </div>    
+    <script> 
+    var point=0;
+    const img = document.getElementById('point')
+    const word = document.getElementById('score')
+    const limit = document.getElementById('limit')
+    var pointerX = -1;
+    var pointerY = -1;
+    document.onmousemove = function(event) {
+	pointerX = event.pageX;
+	pointerY = event.pageY;
+    }
+    setInterval(pointerCheck, 100);
+    setInterval(addpoint,1500);
+    function addpoint(){
+        
+        if(590<pointerX&&pointerX<660&&120<pointerY&&pointerY<380){
+            point+=20;
+            word.textContent = "楊子慶的分數是："+point+"分";
+            //console.log(point)
+        }
+        if(590<pointerX&&pointerX<660&&400<pointerY&&pointerY<670){
+            point+=10;
+            word.textContent = "楊子慶的分數是："+point+"分";
+            //console.log(point)
+        }
+        if(point>100){
+            limit.style.visibility = "visible";
+        }
+    }    
+    function pointerCheck() {
+	    
+        img.style.left=pointerX-350+"px";
+        
+        img.style.top =pointerY-175+"px";
+        console.log('Cursor at: '+pointerX+', '+pointerY);
+    }
+
+    </script>
+
+    <div class="footer">
+        <center><h3 id="copy">&copy;楊子慶B10909030</h3></center>
+    </div>
+</body>
+</html>
